@@ -1,5 +1,5 @@
 #banker
-
+# this was updated on vs code
 def startup():
     #get starting balnce
     #work out position sizing
