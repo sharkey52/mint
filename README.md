@@ -1,7 +1,12 @@
-# what does it do? #
+# what does it do?
 
-a black box trading algorithm which uses machine learning and other analysis methods 
+A black box trading algorithm which uses machine learning and other analysis methods 
 to draw profitable signals from chart data and then automatically execute transactions 
+
+
+## Contributors
+
+Joseph Sharkey <jpr.sharkey@gmail.com>
 
 ## this has been updated ##
 
