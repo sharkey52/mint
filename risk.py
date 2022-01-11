@@ -5,7 +5,7 @@ import random
 def standev(df):
     # calculate standard deviation of prices so
     # we can come up with take profit and stop loss 
-
+    pass
 def randkiller(r):
     if str(r)[-1] == '0':
         execution.close_all()
