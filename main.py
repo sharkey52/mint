@@ -15,8 +15,8 @@ import pandas as pd
 print('Starting...:',end='')
 starttime = datetime.now()
 port = pd.DataFrame()
-inter = 9
-repetitions = 20
+inter = 30
+repetitions = 4000
 fe = 0
 fd = 0
 oanda = tpqoa.tpqoa('oanda.cfg')
