@@ -11,12 +11,12 @@ def run(order):
     
     #creates a buy order from order dictionary if the signal is buy
     if order['signal'] == 'buy': 
-      oanda.create_order(instrument = 'GBP_USD',units=order['units'],suppress=True, ret=True)
+      oanda.create_order(instrument = 'GBP_USD',units=order['units'],sl_distance=order['sl'],tp_price=order['tp'],suppress=True, ret=True)
 
       
     #creates a buy order from order dictionary if the signal is sell
     if order['signal'] == 'sell': 
-      oanda.create_order(instrument = 'GBP_USD',units=-order['units'],suppress=True, ret=True)
+      oanda.create_order(instrument = 'GBP_USD',units=-order['units'],sl_distance=order['sl'],tp_price=order['tp'],suppress=True, ret=True)
 
 def add_to_port(order,portfolio):
     

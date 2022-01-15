@@ -15,7 +15,7 @@ import pandas as pd
 print('Starting...:',end='')
 starttime = datetime.now()
 port = pd.DataFrame()
-inter = 2
+inter = 9
 repetitions = 20
 fe = 0
 fd = 0
@@ -32,7 +32,7 @@ if __name__ == '__main__':
     while r < repetitions:
         try:
             time.sleep(inter)
-            order = {'ticker':'GBP_USD','sl':1,'tp':2}
+            order = {'ticker':'GBP_USD','sl':0.1,'tp':9}
             if 1==1:
                 #portfolio.checkin(port,order):
                 df = data.get_data()
