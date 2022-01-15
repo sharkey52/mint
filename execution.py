@@ -8,17 +8,15 @@ oanda = tpqoa.tpqoa('oanda.cfg')
 
 def run(order):
     ticker = order['ticker']
-            
+    
+    #creates a buy order from order dictionary if the signal is buy
     if order['signal'] == 'buy': 
       oanda.create_order(instrument = 'GBP_USD',units=order['units'],suppress=True, ret=True)
-      #print('\n*** GOING LONG ***')
-      #oanda.print_transactions(tid=int(o['id']) - 1)
 
       
+    #creates a buy order from order dictionary if the signal is sell
     if order['signal'] == 'sell': 
       oanda.create_order(instrument = 'GBP_USD',units=-order['units'],suppress=True, ret=True)
-      #print('\n*** GOING SHORT ***')
-      #self.print_transactions(tid=int(o['id']) - 1)
 
 def add_to_port(order,portfolio):
     

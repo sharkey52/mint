@@ -52,3 +52,6 @@ def update_records(starttime,
     df = df.append(toadd,ignore_index=True)
     df.to_csv("ops.csv")
 
+def update_alphas(alpha):
+    
+    df = pd.read_csv('alps.csv')

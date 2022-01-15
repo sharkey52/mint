@@ -15,7 +15,8 @@ import pandas as pd
 print('Starting...:',end='')
 starttime = datetime.now()
 port = pd.DataFrame()
-inter = 25
+inter = 2
+repetitions = 20
 fe = 0
 fd = 0
 oanda = tpqoa.tpqoa('oanda.cfg')
@@ -28,15 +29,15 @@ def repcounter(r):
     return r
 
 if __name__ == '__main__':
-    while r < 4000:
+    while r < repetitions:
         try:
             time.sleep(inter)
-            order = {'ticker':'GBP_USD'}
+            order = {'ticker':'GBP_USD','sl':1,'tp':2}
             if 1==1:
                 #portfolio.checkin(port,order):
                 df = data.get_data()
-                # order = alpha.machlearn(order,df)
-                order = alpha.a_decider(order,df)
+                order = alpha.machlearn(order,df)
+                #order = alpha.a_decider(order,df)
                 #order = r_decider(order,df) # this wont work after ml because it got rid of high and low
                 risk.killlosers()
                 order = portfolio.p_decider(order)

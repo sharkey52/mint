@@ -48,7 +48,16 @@ def moving_av_con(order,df):
 
 def machlearn(order,df): 
     df = feature.signalbuilder(df)
-    order = logreg(order,df)
+    machlist = [logreg,knear,svc,kernelsvc,naivebayes,dtree,rforest]
+    max = 0
+    for item in machlist:
+        order,score = item(order,df)
+        if score > max:
+            max = score
+            winner = item
+        else:
+            pass
+    order,score = winner(order,df)
     return order
 
 def logreg(order,df):
@@ -81,10 +90,10 @@ def logreg(order,df):
     # comes up with predictions
     y_pred = classifier.predict(X_test)
     # measures accuracy of those predictions
-    accuracy_score(y_test, y_pred)
+    asc = accuracy_score(y_test, y_pred)
 
     order['signal'] = classifier.predict(sc.transform([(df.iloc[-1][:-1])]))
-    return order
+    return order,asc
 
 def knear(order,df):
     order['alpha'] = 'knear' 
@@ -116,10 +125,10 @@ def knear(order,df):
     # comes up with predictions
     y_pred = classifier.predict(X_test)
     # measures accuracy of those predictions
-    accuracy_score(y_test, y_pred)
+    asc = accuracy_score(y_test, y_pred)
 
     order['signal'] = classifier.predict(sc.transform([(df.iloc[-1][:-1])]))
-    return order
+    return order,asc
 
 def svc(order,df):
     order['alpha'] = 'svc' 
@@ -151,10 +160,10 @@ def svc(order,df):
     # comes up with predictions
     y_pred = classifier.predict(X_test)
     # measures accuracy of those predictions
-    accuracy_score(y_test, y_pred)
+    asc = accuracy_score(y_test, y_pred)
 
     order['signal'] = classifier.predict(sc.transform([(df.iloc[-1][:-1])]))
-    return order
+    return order,asc
 
 def kernelsvc(order,df):
     order['alpha'] = 'kernelsvc' 
@@ -186,10 +195,10 @@ def kernelsvc(order,df):
     # comes up with predictions
     y_pred = classifier.predict(X_test)
     # measures accuracy of those predictions
-    accuracy_score(y_test, y_pred)
+    asc = accuracy_score(y_test, y_pred)
 
     order['signal'] = classifier.predict(sc.transform([(df.iloc[-1][:-1])]))
-    return order
+    return order,asc
 
 def naivebayes(order,df):
     order['alpha'] = 'naivebayes' 
@@ -221,10 +230,10 @@ def naivebayes(order,df):
     # comes up with predictions
     y_pred = classifier.predict(X_test)
     # measures accuracy of those predictions
-    accuracy_score(y_test, y_pred)
+    asc = accuracy_score(y_test, y_pred)
 
     order['signal'] = classifier.predict(sc.transform([(df.iloc[-1][:-1])]))
-    return order
+    return order,asc
 
 def dtree(order,df):
     order['alpha'] = 'dtree' 
@@ -256,10 +265,10 @@ def dtree(order,df):
     # comes up with predictions
     y_pred = classifier.predict(X_test)
     # measures accuracy of those predictions
-    accuracy_score(y_test, y_pred)
+    asc = accuracy_score(y_test, y_pred)
 
     order['signal'] = classifier.predict(sc.transform([(df.iloc[-1][:-1])]))
-    return order
+    return order,asc
 
 def rforest(order,df):
     order['alpha'] = 'rforest' 
@@ -291,14 +300,10 @@ def rforest(order,df):
     # comes up with predictions
     y_pred = classifier.predict(X_test)
     # measures accuracy of those predictions
-    accuracy_score(y_test, y_pred)
+    asc = accuracy_score(y_test, y_pred)
 
     order['signal'] = classifier.predict(sc.transform([(df.iloc[-1][:-1])]))
-    return order
-
-
-
-
+    return order,asc
     
 def a_decider(order,df):
 
