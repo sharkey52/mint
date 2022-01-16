@@ -10,5 +10,5 @@ Joseph Sharkey <jpr.sharkey@gmail.com>
 
 ## this has been updated ##
 
-use this with an [oanda](https://www.oanda,com) account 
+use this with an [oanda](https://trade.oanda.com/) account 
 add your login details to ``` oanda.cfg ``` 
