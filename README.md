@@ -10,4 +10,5 @@ Joseph Sharkey <jpr.sharkey@gmail.com>
 
 ## this has been updated ##
 
-use this with an oanda account does this work? 
+use this with an [oanda](https://www.oanda,com) account 
+add your login details to ``` oanda.cfg ``` 
